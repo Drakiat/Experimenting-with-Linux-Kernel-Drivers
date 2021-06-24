@@ -1,0 +1,8 @@
+make clean
+make
+sudo tail -f /var/log/kern.log
+sudo insmod goats.ko
+sudo rmmod goats
+cd /dev
+sudo mknod goats c #MAJOR NUMBER# 0
+cat goats 
