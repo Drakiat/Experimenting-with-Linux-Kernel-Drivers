@@ -24,7 +24,7 @@ static struct file_operations fops ={
 
 static int major;
 
-static int __init rickroll_init(void) {
+static int __init goats_init(void) {
 	major = register_chrdev(0,DEVICE_NAME, &fops);
 	if(major<0){
 		printk(KERN_ALERT "goats module load failed :( )\n");
@@ -33,7 +33,7 @@ static int __init rickroll_init(void) {
 	printk(KERN_INFO "goats module has been loaded :)))) %d\n",major);
 	return 0;
 }
-static void __exit rickroll_exit(void) {
+static void __exit goats_exit(void) {
 	printk(KERN_INFO "goats module has been unloaded\n");
 }
 
@@ -58,5 +58,5 @@ errors = copy_to_user(buffer,message,message_len);
 return errors == 0 ? message_len : -EFAULT;
 
 }
-module_init(rickroll_init);
-module_exit(rickroll_exit);
+module_init(goats_init);
+module_exit(goats_exit);
